@@ -6,23 +6,37 @@
 //	cout << "Alive: " << (st.alive ? "Yes" : "No") << endl;
 //}
 
+void change(Student &student) {
+	student.name = "Dimka";
+	student.age = 58;
+	student.mark = 2.3;
+	student.alive = false;
+}
+
+
 int main() {
-	Student st1, st2;
+	Student st1, temp;
 	st1.name = "Bogdan";
 	st1.age = 14;
 	st1.mark = 7;
 	st1.alive = true;
 
-	st2.name = "Ivan";
-	st2.age = 15;
-	st2.mark = 9.2;
-	st2.alive = true; 
+	temp = st1;
 
-	cout<<st1.getString()<<endl;
-	cout<<st2.getString()<<endl;
+	st1.name = "Vovan";
+
+	cout << "Before:" << endl;
+	cout << st1.getString() << endl;
+	cout << temp.getString() << endl;
+
+	change(st1);
+
+	cout << "After:" << endl;
+	cout << st1.getString() << endl;
+	
 
 	//string name = st1.mark > st2.mark ? st1.name : st2.name;
-	/*Student t= st1.mark > st2.mark ? st1 : st2;
-	cout << "Best student name is " << t.name << endl;*/
+	//student t= st1.mark > st2.mark ? st1 : st2;
+	//cout << "best student name is " << t.name << endl;
 	return 0;
 }
