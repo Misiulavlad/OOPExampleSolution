@@ -6,7 +6,7 @@
 //	cout << "Alive: " << (st.alive ? "Yes" : "No") << endl;
 //}
 
-void change(Student &student) {
+void change(Student& student) {
 	student.name = "Dimka";
 	student.age = 58;
 	student.mark = 2.3;
@@ -15,28 +15,21 @@ void change(Student &student) {
 
 
 int main() {
-	Student st1, temp;
-	st1.name = "Bogdan";
-	st1.age = 14;
-	st1.mark = 7;
-	st1.alive = true;
+	Student* st1 = new Student;
 
-	temp = st1;
+	st1->name = "Vlad";
+	st1->age = 0;
+	st1->mark = 9.9;
+	st1->alive = true;
 
-	st1.name = "Vovan";
+	Student* st2 = st1;
 
-	cout << "Before:" << endl;
-	cout << st1.getString() << endl;
-	cout << temp.getString() << endl;
+	cout << "Before: " << endl;
+	cout << st1->getString() << endl;
 
-	change(st1);
+	st2->name = "Matvey";
 
-	cout << "After:" << endl;
-	cout << st1.getString() << endl;
-	
-
-	//string name = st1.mark > st2.mark ? st1.name : st2.name;
-	//student t= st1.mark > st2.mark ? st1 : st2;
-	//cout << "best student name is " << t.name << endl;
+	cout << "After: " << endl;
+	cout << st1->getString() << endl;
 	return 0;
 }
